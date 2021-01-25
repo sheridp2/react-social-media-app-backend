@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { UserInoutError, UserInputError } = require("apollo-server");
+const { UserInputError } = require("apollo-server");
 
 const {
   validateRegisterInput,
@@ -15,6 +15,7 @@ function generateToken(user) {
       id: user.id,
       email: user.email,
       username: user.username,
+      userImage: user.userImage,
     },
     SECRET_KEY,
     { expiresIn: "1h" }

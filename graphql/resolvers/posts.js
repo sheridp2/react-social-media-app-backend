@@ -39,8 +39,10 @@ module.exports = {
         body,
         user: user.id,
         username: user.username,
+        userImage: user.userImage,
         createdAt: new Date().toISOString(),
       });
+
       const post = await newPost.save();
 
       context.pubsub.publish("NEW_POST", {
